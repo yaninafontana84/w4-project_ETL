@@ -1,3 +1,6 @@
+![](../images/proyecto_etl.png)
+
+
 # w4-project_ETL
 
 # Web Scraping
