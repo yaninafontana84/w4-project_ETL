@@ -185,3 +185,69 @@ contaminacion = contaminacion.reset_index(drop=True)
 ```py
 contaminacion = contaminacion[['mes', 'año', 'contam_media']]
 ```
+
+
+
+
+
+RESULTADOS
+
+
+
+CREACION DE BASE DE DATOS
+
+```sql
+CREATE DATABASE etl;
+```
+
+```sql
+
+CREATE TABLE etl.pandemia (	id INT auto_increment NOT NULL,	mes INT NOT NULL,	año INT NOT NULL,	cuarentena VARCHAR(10) NOT NULL,	CONSTRAINT pandemia_PK PRIMARY KEY (id))ENGINE=InnoDBDEFAULT CHARSET=utf8mb4COLLATE=utf8mb4_0900_ai_ci;
+```
+
+Creación de las tablas nacimientos y contaminacion desde los notebooks
+
+```py
+
+from sqlalchemy import create_engine
+str_conn = f'mysql+pymysql://root:Joaquin01@localhost:3306/etl'
+cursor = create_engine(str_conn)
+
+INE.to_sql(name='nacimientos',       # nombre de la tabla
+
+con=cursor,           # conexion al servidor
+
+if_exists='replace',  # replace sobreescribe la tabla
+
+index=True)
+
+contaminacion.to_sql(name='contaminacion',       # nombre de la tabla
+
+con=cursor,           # conexion al servidor
+
+if_exists='replace',  # replace sobreescribe la tabla
+
+index=True)
+```
+
+
+INSERTAR DATOS EN TABLA PANDEMIA
+
+```sql
+INSERT INTO etl.pandemia (id,mes,año,cuarentena) VALUES	 (0,'01','2019','False'),	 (1,'02','2019','False'),	 (2,'03','2019','False'),	 (3,'04','2019','False'),	 (4,'05','2019','False'),	 (5,'06','2019','False'),	 (6,'07','2019','False'),	 (7,'08','2019','False'),	 (8,'09','2019','False'),	 (9,'10','2019','False'),	 (10,'11','2019','False'),	 (11,'12','2019','False'),	 (12,'01','2020','False'),	 (13,'02','2020','False'),	 (14,'03','2020','True'),	 (15,'04','2020','True'),	 (16,'05','2020','True'),	 (17,'06','2020','True'),	 (18,'07','2020','False'),	 (19,'08','2020','False'),	 (20,'09','2020','False'),	 (21,'10','2020','False'),	 (22,'11','2020','False'),	 (23,'12','2020','False'),	 (24,'01','2021','False'),	 (25,'02','2021','False'),	 (26,'03','2021','False'),	 (27,'04','2021','False'),	 (28,'05','2021','False'),	 (29,'06','2021','False'),	 (30,'07','2021','False'),	 (31,'08','2021','False'),	 (32,'09','2021','False'),	 (33,'10','2021','False'),	 (34,'11','2021','False'),	 (35,'12','2021','False'),	 (36,'01','2022','False'),	 (37,'02','2022','False'),	 (38,'03','2022','False'),	 (39,'04','2022','False'),	 (40,'05','2022','False'),	 (41,'06','2022','False'),	 (42,'07','2022','False'),	 (43,'08','2022','False'),	 (44,'09','2022','False'),	 (45,'10','2022','False'),	 (46,'11','2022','False'),	 (47,'12','2022','False');
+```
+
+
+ASIGNAR PK A NACIIMIENTO
+
+```sql
+
+ALTER TABLE etl.nacimientos ADD CONSTRAINT nacimientos_PK PRIMARY KEY (index);
+```
+
+ASIGNAR PK A CONTAMINACION
+
+```sql
+
+ALTER TABLE etl.contaminacion ADD CONSTRAINT contaminacion_PK PRIMARY KEY (index);
+```
