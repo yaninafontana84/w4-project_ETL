@@ -187,10 +187,9 @@ contaminacion = contaminacion.reset_index(drop=True)
 contaminacion = contaminacion[['mes', 'año', 'contam_media']]
 ```
 
-
 ## RESULTADOS
 
-Luego de la limpieza de los archivos, realicé los describe de los dataframe y algunos gráficos para visualizar los resultados
+Luego de la limpieza de los archivos, realicé los describe de los dataframe y algunos gráficos para visualizar los resultados (Los gráficos se pueden ver en el archivo "resultados.ipynb")
 
 Primero con el archivo de contaminación acústica mensual en Madrid
 
@@ -357,5 +356,15 @@ PRIMARY KEY (index);
 
 ```
 
+### Recursos
 
-ACÁ PONER LINKS DE PAG USADAS
+* [Python Data Cleaning](https://realpython.com/python-data-cleaning-numpy-pandas/#python-data-cleaning-recap-and-resources)
+* [Python](https://docs.python.org/3/library/functions.html)
+
+* [NumPy](https://numpy.org/doc/1.18/)
+* [Pandas](https://pandas.pydata.org/docs/)
+
+* [MySQL](https://www.mysql.com/)
+* [Matplotlib](https://matplotlib.org/)
+
+* [SQLAlchemy](https://www.sqlalchemy.org/)
